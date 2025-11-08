@@ -46,8 +46,9 @@ void Wardriving::begin_wifi() {
 }
 
 bool Wardriving::begin_gps() {
+    // --- MODIFIED LINE TO USE DEDICATED PINS ---
     GPSserial.begin(
-        bruceConfig.gpsBaudrate, SERIAL_8N1, bruceConfigPins.gps_bus.rx, bruceConfigPins.gps_bus.tx
+        bruceConfig.gpsBaudrate, SERIAL_8N1, SERIAL_RX, SERIAL_TX 
     );
 
     int count = 0;
